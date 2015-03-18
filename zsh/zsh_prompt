@@ -17,7 +17,7 @@ autoload -Uz vcs_info
 local reset white gray green red yellow blue cyan magenta black
 reset="%{${reset_color}%}"
 white="%{$fg[white]%}"
-gray="%{$fg_bold[black]%}"
+gray="%{$fg_bold[gray]%}"
 green="%{$fg_bold[green]%}"
 red="%{$fg[red]%}"
 yellow="%{$fg[yellow]%}"
