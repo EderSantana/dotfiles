@@ -35,7 +35,7 @@ let b:fileList += split(globpath('~/dotfiles/custom-configs/**', '*.vim'), '\n')
 "}1
 
 " Set leader keys {1
-let mapleader="'"
+let mapleader=" "
 let maplocalleader= '|'
 " }1
 
