@@ -11,3 +11,6 @@ setlocal expandtab
 
 " Make sure we use the correct comment string in vim-commentary plug-in
 set commentstring=#\ %s
+
+" Vim-slime ipython integration
+let g:slime_python_ipython = 1
