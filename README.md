@@ -102,3 +102,5 @@ You can use your own configuration file in place of any of the following
 To do so you just need to include a file of the same name in your version
 controlled directory that you save into `custom-configs` the create symlinks
 scripts will link the files properly.
+
+Please, make sure to check the original repo [here](https://github.com/JarrodCTaylor/dotfiles)
