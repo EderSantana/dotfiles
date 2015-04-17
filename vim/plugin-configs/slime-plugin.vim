@@ -17,3 +17,6 @@ let g:slime_target = "tmux"
 " Unite Keymap Menu Item(s)
 "===============================================================================
 " N/A
+let g:unite_source_menu_menus.CustomKeyMaps.command_candidates += [['➤ Vim-Slime run code                                           <C-c><C-c>', 'echo "Ctrl-c Ctrl-c"']]
+let g:unite_source_menu_menus.CustomKeyMaps.command_candidates += [['➤ Vim-Slime configuration                                      <C-c>v', 'echo "Ctrl-c v"']]
+
