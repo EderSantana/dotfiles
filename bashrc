@@ -48,3 +48,15 @@ alias ls='ls --color'
 # Empty the trash folder that is created when you delete things as root
 alias root_trash='sudo bash -c "exec rm -r /root/.local/share/Trash/{files,info}/*"'
 alias tmux="TERM=screen-256color-bce tmux"  # Fix tmux making vim colors funky
+
+
+export PYLEARN2_DATA_PATH=/home/eders/Copy/python/data
+export VIDTIMIT_DATA_PATH=/home/eders/python/data/vidtimit/
+alias inote='ipython notebook --ip=10.227.119.105'
+alias nenv='. ~/.bashrc; . ~/newenv/bin/activate'
+export AUSTIN=ece-n241-cnelx1.ad.ufl.edu
+alias gotoaustin='ssh -X edersantana@$AUSTIN'
+
+export PYTHONPATH=/home/eders/python/vpcn:$PYTHONPATH
+
+export PYTHONPATH=/home/eders/python:/home/eders/python/data/vidtimit:/home/eders/python/pylearn2:/home/eders/python/vpcn:/home/eders/python/vpcn:
