@@ -106,6 +106,7 @@ map <leader>td <Plug>TaskList
 map <leader>g :GundoToggle<CR>
 let g:pep8_map='<localleader>8'
 map <leader>t :NERDTreeToggle<CR>
+hi Directory guifg=#FF0000 ctermfg=red
 
 "SuperTab stuff
 au FileType python set omnifunc=pythoncomplete#Complete
