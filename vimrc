@@ -1,92 +1,155 @@
-" vim: set foldmarker={,} foldlevel=0 foldmethod=marker:
+" Backspace works
+set backspace=indent,eol,start
+" Line number
+set number
+" Leader keys
+let mapleader = "'"
+let maplocalleader = "|"
+" No shifts for :
+map ; :
+noremap ;; ;
 
-"===================================================================================
-"  DESCRIPTION:  ”Life is frittered away by detail... simplify, simplify.” – Thoreau
-"       AUTHOR:  Jarrod Taylor
-" ____   ____.__                  .__               __
-" \   \ /   /|__| _____           |__| ____ _____ _/  |_  ___________
-"  \   Y   / |  |/     \   ______ |  |/    \\__  \\   __\/  _ \_  __ \
-"   \     /  |  |  Y Y  \ /_____/ |  |   |  \/ __ \|  | (  <_> )  | \/
-"    \___/   |__|__|_|  /         |__|___|  (____  /__|  \____/|__|
-"                     \/                  \/     \/
-"
-"===================================================================================
+" Automatically setup Vundle on first run
+if !isdirectory(expand("~/.vim/bundle/vundle"))
+    call system("git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle")
+endif
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/vundle
+call vundle#rc()
 
-" Source custom-init to allow excluding plugins {1
-let b:customInit=expand('~/dotfiles/custom-configs/**/custom-init.vim')
-if filereadable(b:customInit)
-    exe 'source' b:customInit
+Bundle 'jpalardy/vim-slime'
+Bundle 'ivanov/vim-ipython'
+Bundle 'kien/ctrlp.vim'
+Bundle 'gmarik/vundle'
+Bundle 'tpope/vim-fugitive'
+Bundle 'msanders/snipmate.vim'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-git'
+Bundle 'ervandew/supertab'
+"Bundle 'fholgado/minibufexpl.vim'
+"Bundle 'wincent/Command-T'
+"Bundle 'weynhamz/vim-plugin-minibufexpl'
+Bundle 'mitechie/pyflakes-pathogen'
+Bundle 'mileszs/ack.vim'
+Bundle 'sjl/gundo.vim'
+Bundle 'fs111/pydoc.vim'
+Bundle 'vim-scripts/pep8'
+Bundle 'alfredodeza/pytest.vim'
+Bundle 'reinh/vim-makegreen'
+Bundle 'vim-scripts/TaskList.vim'
+Bundle 'vim-scripts/The-NERD-tree'
+Bundle 'bling/vim-airline'
+Bundle 'jmcantrell/vim-virtualenv'
+Bundle 'nanotech/jellybeans.vim'
+Plugin 'hynek/vim-python-pep8-indent'
+Plugin 'bling/vim-bufferline'
+
+if !isdirectory(expand("~/.vim/bundle/vim-airline"))
+    execute 'silent BundleInstall'
+    execute 'silent q'
 endif
 
-if !exists("g:exclude")
-    let g:exclude = [""]
-endif
-" }1
+filetype plugin indent on " detect file type and load indents and plugins
+syntax on                 " turn on syntax highlighting
+colorscheme jellybeans    " syntax highlighting colours
+set cursorline            " don't lose yourself
+set expandtab             " enter spaces when tab is pressed
+set textwidth=80          " break lines when line length increases
+set tabstop=4             " use 4 spaces to represent tab
+set softtabstop=4
+set shiftwidth=4          " number of spaces to use for auto indent
+set autoindent            " copy indent from current line when starting a new line
+set autoread              " auto reload buffer when file modified externally
+set clipboard=unnamed     " yank and paste using system clipboard
+set encoding=utf-8        " default char encoding
+set lazyredraw
 
-" Buffer variables that control plugin loading {1
-let b:pluginList = split(globpath('~/.vim/order-dependent-unite-config', '*.vim'), '\n')
-let b:pluginList += split(globpath('~/.vim/plugin-configs', '*.vim'), '\n')
-let b:pluginList += split(globpath('~/dotfiles/custom-configs/**', '*-plugin.vim'), '\n')
-let b:fileList = split(globpath('~/.vim/order-dependent-unite-config', '*.vim'), '\n')
-let b:fileList += split(globpath('~/.vim/vanilla-configs', '*.vim'), '\n')
-let b:fileList += split(globpath('~/.vim/plugin-configs', '*.vim'), '\n')
-let b:fileList += split(globpath('~/.vim/functions', '*.vim'), '\n')
-let b:fileList += split(globpath('~/dotfiles/custom-configs/**', '*.vim'), '\n')
-"}1
+"""""""""""
+" slime
+"""""""""""
+let g:slime_target = "tmux"
+let g:slime_python_ipython = 1
+"let g:slime_cell_delimiter = "##"
 
-" Set leader keys {1
-let mapleader="'"
-let maplocalleader= '|'
-" }1
+"""""""""""
+" airline
+"""""""""""
+set guifont=Monaco
+set laststatus=2 " always show statusline
+let g:airline#extensions#bufferline#enabled = 1
+" let g:airline#extensions#tabline#enabled = 1 " show open buffers
+let g:airline_powerline_fonts = 1
 
-" Function to process lists for sourceing and adding bundles {1
-function! ProcessList(listToProcess, functionToCall)
-    for fpath in a:listToProcess
-        if index(g:exclude, split(fpath, "/")[-1]) >= 0
-            continue
-        else
-            call {a:functionToCall}(fpath)
-        endif
-    endfor
-endfunction
-
-function! AddBundle(fpath)
-    exe 'NeoBundle ' readfile(a:fpath, "", 4)[-1]
-endfunction
-
-function! SourceFile(fpath)
-    exe 'source' a:fpath
-endfunction
-"}1
-
-" NeoBundle auto-installation and setup {1
-" Install and configure NeoBundle {2
-if !1 | finish | endif
-
-if has('vim_starting')
-    set nocompatible
-    set runtimepath+=~/.vim/bundle/neobundle.vim/
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
 endif
 
-let neobundle_readme=expand($HOME.'/.vim/bundle/neobundle.vim/README.md')
+" vim-powerline symbols
+"let g:airline_left_sep = '⮀'
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = '⮁'
+"let g:airline_right_sep = '⮂'
+let g:airline_right_sep = ''
+"let g:airline_right_alt_sep = '⮃'
+let g:airline_right_alt_sep = '|'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.whitespace = 'Ξ'
+let g:airline_section_y = airline#section#create(['%p', '%%'])
+let g:airline_section_z = airline#section#create_right(['%l', '%c'])
 
-if !filereadable(neobundle_readme)
-    silent !curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
-endif
+""""""""""
+" Plugins
+""""""""""
+map <leader>pd <Plug>Pydoc
+map <leader>td <Plug>TaskList
+map <leader>g :GundoToggle<CR>
+let g:pep8_map='<localleader>8'
+map <leader>t :NERDTreeToggle<CR>
 
-call neobundle#begin(expand('~/.vim/bundle/'))
-NeoBundleFetch 'Shougo/neobundle.vim'
-" }2
-" Bundles {2
-call ProcessList(b:pluginList, "AddBundle")
-" }2
-" Auto install the plugins {2
-call neobundle#end()
-filetype plugin indent on
-NeoBundleCheck
-" }2
-" }1
+"SuperTab stuff
+au FileType python set omnifunc=pythoncomplete#Complete
+let g:SuperTabDefaultCompletiontype = "context"
+set completeopt=menuone,longest,preview
 
-" Source Vim configurations {1
-call ProcessList(b:fileList, "SourceFile")
-" }1
+"Git stuff
+set statusline+=%{fugitive#statusline()}
+
+"Pytest
+nmap <silent><leader>tf <Esc>:Pytest file<CR>
+nmap <silent><Leader>tc <Esc>:Pytest class<CR>
+nmap <silent><Leader>tm <Esc>:Pytest method<CR>
+" cycle through test errors
+nmap <silent><Leader>tn <Esc>:Pytest next<CR>
+nmap <silent><Leader>tp <Esc>:Pytest previous<CR>
+nmap <silent><Leader>te <Esc>:Pytest error<CR>
+
+" Move between open buffers easier
+noremap <C-J> :bp<CR>
+noremap <C-K> :bn<CR>
+noremap <Leader>d :bd!<CR>:bp<CR>
+
+" Move between vertical splits easier
+noremap <C-h> <C-w>h
+noremap <C-l> <C-w>l
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+
+" Highlight characters when lines get too long
+augroup LongLines
+    autocmd!
+    autocmd FileType * match none
+    autocmd FileType python,vim match ErrorMsg '\%>80v.\+'
+    autocmd FileType html,htmldjango match ErrorMsg '\%>100v.\+'
+augroup END
+
+" Automatically wrap text while typing in Markdown and rST documents
+autocmd! BufNewFile,BufReadPost *.md set filetype=markdown
+autocmd! Filetype markdown,rst set textwidth=79
+
+" Remove trailing whitespace and empty lines at end of file
+augroup whitespace
+    autocmd!
+    autocmd BufWritePre * :%s/\s\+$//e
+    autocmd BufWritePre * :%s/\($\n\s*\)\+\%$//e
+augroup END
