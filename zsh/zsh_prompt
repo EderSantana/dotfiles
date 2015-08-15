@@ -121,7 +121,7 @@ function +pr-mode-full() {
 
     # Set the text string that will be used to fill the width of the terminal filler
     # This line crosses everything with  ──────────────────────────
-    filler="${black}${(l:$(( $COLUMNS - $info_line_width - $return_status_width + $venv_shim + $npm_shim))::─:)}${reset}"
+    filler="${black}${(l:$(( $COLUMNS - $info_line_width - $return_status_width + $venv_shim + $npm_shim)):: :)}${reset}"
     infoline[-1]=( ${filler} ${infoline[-1]} )
 
     # --------------------------
@@ -142,12 +142,17 @@ function +pr-mode-full() {
 
     # Add some connecting lines to the beginning of our prompts
     if [[ -n ${pr_com[vcs]} ]]; then
-        lines[1]="${gray}┌──${lines[1]}${gray}─${reset}"
-        lines[2]="${gray}├──${lines[2]}${reset}"
-        lines[3]="${gray}└──➤${lines[3]}${reset}"
+        #lines[1]="${gray}┌──${lines[1]}${gray}─${reset}"
+        #lines[2]="${gray}├──${lines[2]}${reset}"
+        #lines[3]="${gray}└──➤${lines[3]}${reset}"
+        lines[1]="${gray}${lines[1]}${gray}${reset}"
+        lines[2]="${gray}${lines[2]}${reset}"
+        lines[3]="${gray}->${lines[3]}${reset}"
     else
-        lines[1]="${gray}┌──${lines[1]}${gray}─${reset}"
-        lines[2]="${gray}└──➤${lines[2]}${reset}"
+        #lines[1]="${gray}┌──${lines[1]}${gray}─${reset}"
+        #lines[2]="${gray}└──➤${lines[2]}${reset}"
+        lines[1]="${gray}${lines[1]}${gray}${reset}"
+        lines[2]="${gray}->${lines[2]}${reset}"
     fi
 
     # And we set the value for the prompt_left_lines
@@ -218,10 +223,11 @@ function +pr-prompt() {
 
 
     # Add exit status check or x logic
-    exit_status=( ${gray}\( )
+    #exit_status=( ${gray}\( )
+    exit_status=( ${gray} )
     exit_status+="%(0?.${green}✔.${red}✘)"
-    exit_status+=( ${gray}\) )
-    exit_status+=( ${reset} )
+    #exit_status+=( ${gray}\) )
+    #exit_status+=( ${reset} )
 
     pr_com[usr]=${(j::)exit_status}
 }
