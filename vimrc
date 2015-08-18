@@ -18,6 +18,7 @@ filetype off
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 
+Bundle 'scrooloose/syntastic'
 Bundle 'jpalardy/vim-slime'
 Bundle 'ivanov/vim-ipython'
 Bundle 'kien/ctrlp.vim'
@@ -105,8 +106,11 @@ map <leader>pd <Plug>Pydoc
 map <leader>td <Plug>TaskList
 map <leader>g :GundoToggle<CR>
 let g:pep8_map='<localleader>8'
+
+" NERDTree
 map <leader>t :NERDTreeToggle<CR>
 hi Directory guifg=#FF0000 ctermfg=red
+let NERDTreeIgnore = ['\.pyc$']
 
 "SuperTab stuff
 au FileType python set omnifunc=pythoncomplete#Complete
@@ -125,6 +129,20 @@ nmap <silent><Leader>tn <Esc>:Pytest next<CR>
 nmap <silent><Leader>tp <Esc>:Pytest previous<CR>
 nmap <silent><Leader>te <Esc>:Pytest error<CR>
 
+" Syntastic
+" Default settings from their github
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+""""""""""""""""""""
+" Extra key bindings
+""""""""""""""""""""
 " Move between open buffers easier
 noremap <C-J> :bp<CR>
 noremap <C-K> :bn<CR>
@@ -154,3 +172,19 @@ augroup whitespace
     autocmd BufWritePre * :%s/\s\+$//e
     autocmd BufWritePre * :%s/\($\n\s*\)\+\%$//e
 augroup END
+
+""""""""""""""""""""""""""""""""""""""""""
+" Navigate tmux and vim with the same keys
+""""""""""""""""""""""""""""""""""""""""""
+function! s:NavigateTermSplits(direction)
+    let windowNumber = winnr()
+    execute 'wincmd ' . a:direction
+    if windowNumber == winnr()
+        silent call system('tmux select-pane -' . tr(a:direction, 'hjkl', 'LDUR'))
+    endif
+endfunction
+
+nnoremap <silent> <C-h> :call <SID>NavigateTermSplits('h')<CR>
+nnoremap <silent> <C-j> :call <SID>NavigateTermSplits('j')<CR>
+nnoremap <silent> <C-k> :call <SID>NavigateTermSplits('k')<CR>
+nnoremap <silent> <C-l> :call <SID>NavigateTermSplits('l')<CR>
