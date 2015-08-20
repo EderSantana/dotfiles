@@ -1,3 +1,7 @@
+" Edit vimrc
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>st :source %<cr>
+
 " Backspace works
 set backspace=indent,eol,start
 " Line number
