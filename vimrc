@@ -3,7 +3,7 @@ set backspace=indent,eol,start
 " Line number
 set number
 " Leader keys
-let mapleader = '"'
+let mapleader = "'"
 let maplocalleader = "|"
 " No shifts for :
 noremap ; :
@@ -148,9 +148,11 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 " UltiSnips
-let g:UltiSnipsExpandTrigger="9<tab>"
+let g:UltiSnipsExpandTrigger="<F2>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsSnippetsDir='~/.vim/UltiSnips'
+let g:ultisnips_python_style='numpy'
 
 """"""""""""""""""""
 " Extra key bindings
