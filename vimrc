@@ -1,22 +1,24 @@
-" Edit vimrc
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-nnoremap <leader>st :source %<cr>
-
 " Backspace works
 set backspace=indent,eol,start
 " Line number
 set number
 " Leader keys
-let mapleader = "'"
+let mapleader = '"'
 let maplocalleader = "|"
 " No shifts for :
-map ; :
+noremap ; :
 noremap ;; ;
+
+" Edit vimrc
+nnoremap <leader>ve :vsplit $MYVIMRC<cr>
+nnoremap <leader>st :source %<cr>
+
 
 " Automatically setup Vundle on first run
 if !isdirectory(expand("~/.vim/bundle/vundle"))
     call system("git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle")
 endif
+
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/vundle
@@ -28,20 +30,17 @@ Bundle 'ivanov/vim-ipython'
 Bundle 'kien/ctrlp.vim'
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
-Bundle 'msanders/snipmate.vim'
+"Bundle 'msanders/snipmate.vim'
 Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-git'
+"Bundle 'tpope/vim-git'
 Bundle 'ervandew/supertab'
 "Bundle 'fholgado/minibufexpl.vim'
 "Bundle 'wincent/Command-T'
 "Bundle 'weynhamz/vim-plugin-minibufexpl'
-Bundle 'mitechie/pyflakes-pathogen'
 Bundle 'mileszs/ack.vim'
 Bundle 'sjl/gundo.vim'
 Bundle 'fs111/pydoc.vim'
-Bundle 'vim-scripts/pep8'
 Bundle 'alfredodeza/pytest.vim'
-Bundle 'reinh/vim-makegreen'
 Bundle 'vim-scripts/TaskList.vim'
 Bundle 'vim-scripts/The-NERD-tree'
 Bundle 'bling/vim-airline'
@@ -49,6 +48,8 @@ Bundle 'jmcantrell/vim-virtualenv'
 Bundle 'nanotech/jellybeans.vim'
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'bling/vim-bufferline'
+Plugin 'wincent/terminus'
+Plugin 'sirver/ultisnips'
 
 if !isdirectory(expand("~/.vim/bundle/vim-airline"))
     execute 'silent BundleInstall'
@@ -106,25 +107,27 @@ let g:airline_section_z = airline#section#create_right(['%l', '%c'])
 """"""""""
 " Plugins
 """"""""""
+
+" Pydoc, TaskList, Gundo
 map <leader>pd <Plug>Pydoc
 map <leader>td <Plug>TaskList
-map <leader>g :GundoToggle<CR>
-let g:pep8_map='<localleader>8'
+nnoremap <F5> :GundoToggle<CR>
+let g:gundo_prefer_python3 = 1
 
 " NERDTree
 map <leader>t :NERDTreeToggle<CR>
 hi Directory guifg=#FF0000 ctermfg=red
 let NERDTreeIgnore = ['\.pyc$']
 
-"SuperTab stuff
+" SuperTab
 au FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletiontype = "context"
 set completeopt=menuone,longest,preview
 
-"Git stuff
+" Fugitive
 set statusline+=%{fugitive#statusline()}
 
-"Pytest
+" py.test
 nmap <silent><leader>tf <Esc>:Pytest file<CR>
 nmap <silent><Leader>tc <Esc>:Pytest class<CR>
 nmap <silent><Leader>tm <Esc>:Pytest method<CR>
@@ -144,12 +147,17 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+" UltiSnips
+let g:UltiSnipsExpandTrigger="9<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
 """"""""""""""""""""
 " Extra key bindings
 """"""""""""""""""""
 " Move between open buffers easier
-noremap <C-J> :bp<CR>
-noremap <C-K> :bn<CR>
+noremap <C-9> :bp<CR>
+noremap <C-0> :bn<CR>
 noremap <Leader>d :bd!<CR>:bp<CR>
 
 " Move between vertical splits easier
