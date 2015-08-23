@@ -26,7 +26,8 @@ call vundle#rc()
 
 Bundle 'wakatime/vim-wakatime'
 Bundle 'scrooloose/syntastic'
-Bundle 'jpalardy/vim-slime'
+" Bundle 'jpalardy/vim-slime'
+Bundle 'file:///Users/eder/vim/vim-slime'
 Bundle 'ivanov/vim-ipython'
 Bundle 'kien/ctrlp.vim'
 Bundle 'gmarik/vundle'
