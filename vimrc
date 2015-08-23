@@ -24,6 +24,7 @@ filetype off
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 
+Bundle 'wakatime/vim-wakatime'
 Bundle 'scrooloose/syntastic'
 Bundle 'jpalardy/vim-slime'
 Bundle 'ivanov/vim-ipython'
@@ -50,6 +51,7 @@ Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'bling/vim-bufferline'
 Plugin 'wincent/terminus'
 Plugin 'sirver/ultisnips'
+Plugin 'junegunn/seoul256.vim'
 
 if !isdirectory(expand("~/.vim/bundle/vim-airline"))
     execute 'silent BundleInstall'
