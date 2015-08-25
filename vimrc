@@ -26,8 +26,7 @@ call vundle#rc()
 
 Bundle 'wakatime/vim-wakatime'
 Bundle 'scrooloose/syntastic'
-" Bundle 'jpalardy/vim-slime'
-Bundle 'file:///Users/eder/vim/vim-slime'
+Bundle 'edersantana/vim-slime'
 Bundle 'ivanov/vim-ipython'
 Bundle 'kien/ctrlp.vim'
 Bundle 'gmarik/vundle'
@@ -155,14 +154,13 @@ let g:UltiSnipsExpandTrigger="<F2>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsSnippetsDir='~/.vim/UltiSnips'
-let g:ultisnips_python_style='numpy'
 
 """"""""""""""""""""
 " Extra key bindings
 """"""""""""""""""""
 " Move between open buffers easier
-noremap <C-9> :bp<CR>
-noremap <C-0> :bn<CR>
+noremap <C-i> :bp<CR>
+noremap <C-o> :bn<CR>
 noremap <Leader>d :bd!<CR>:bp<CR>
 
 " Move between vertical splits easier
@@ -205,3 +203,8 @@ nnoremap <silent> <C-h> :call <SID>NavigateTermSplits('h')<CR>
 nnoremap <silent> <C-j> :call <SID>NavigateTermSplits('j')<CR>
 nnoremap <silent> <C-k> :call <SID>NavigateTermSplits('k')<CR>
 nnoremap <silent> <C-l> :call <SID>NavigateTermSplits('l')<CR>
+
+"""""""""""""""
+" Vim slime
+"""""""""""""""
+nnoremap <C-c><cr> ma<C-c><C-c>`a
