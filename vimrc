@@ -1,4 +1,5 @@
 " Backspace works
+set t_Co=256
 set backspace=indent,eol,start
 " Line number
 set number
@@ -60,6 +61,7 @@ endif
 
 filetype plugin indent on " detect file type and load indents and plugins
 syntax on                 " turn on syntax highlighting
+syntax enable
 colorscheme jellybeans    " syntax highlighting colours
 set cursorline            " don't lose yourself
 set expandtab             " enter spaces when tab is pressed
