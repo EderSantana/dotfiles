@@ -52,10 +52,15 @@ Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'bling/vim-bufferline'
 Plugin 'wincent/terminus'
 Plugin 'sirver/ultisnips'
+<<<<<<< HEAD
 Plugin 'kchmck/vim-coffee-script'
 " Plugin 'suan/vim-instant-markdown'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'sloria/vim-ped'
+=======
+Plugin 'junegunn/seoul256.vim'
+Plugin 'tomasr/molokai'
+>>>>>>> d874fd99a39c983edae9143f3a19d8cc02f5a763
 
 if !isdirectory(expand("~/.vim/bundle/vim-airline"))
     execute 'silent BundleInstall'
@@ -155,6 +160,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 " UltiSnips
+nnoremap <C-b> <esc>
 let g:UltiSnipsExpandTrigger="<F2>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
