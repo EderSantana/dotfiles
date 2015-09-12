@@ -52,6 +52,7 @@ Plugin 'bling/vim-bufferline'
 Plugin 'wincent/terminus'
 Plugin 'sirver/ultisnips'
 Plugin 'junegunn/seoul256.vim'
+Plugin 'tomasr/molokai'
 
 if !isdirectory(expand("~/.vim/bundle/vim-airline"))
     execute 'silent BundleInstall'
@@ -150,6 +151,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 " UltiSnips
+nnoremap <C-b> <esc>
 let g:UltiSnipsExpandTrigger="<F2>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"

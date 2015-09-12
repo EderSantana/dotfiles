@@ -60,3 +60,11 @@ alias gotoaustin='ssh -X edersantana@$AUSTIN'
 export PYTHONPATH=/home/eders/python/vpcn:$PYTHONPATH
 
 export PYTHONPATH=/home/eders/python:/home/eders/python/data/vidtimit:/home/eders/python/pylearn2:/home/eders/python/vpcn:/home/eders/python/vpcn:
+
+export CUDA=/usr/local/cuda
+export PATH=/usr/local/cuda/bin:$HOME/cudnn:$PATH
+export CPATH=/usr/local/cuda/bin:$HOME/cudnn:$CPATH
+export LD_LIBRARY_PATH=$HOME/cudnn:$LD_LIBRARY_PATH
+
+export HUBOT_YOUTUBE_API_KEY=AIzaSyAbaT227Td0lp3MaIffiCewMmk8yu6RBKE
+export HUBOT_SLACK_TOKEN=xoxb-10207077749-dvfHqcxKOoFK4bWMgNBc2M8s
