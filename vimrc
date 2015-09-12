@@ -52,7 +52,10 @@ Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'bling/vim-bufferline'
 Plugin 'wincent/terminus'
 Plugin 'sirver/ultisnips'
-Plugin 'junegunn/seoul256.vim'
+Plugin 'kchmck/vim-coffee-script'
+" Plugin 'suan/vim-instant-markdown'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'sloria/vim-ped'
 
 if !isdirectory(expand("~/.vim/bundle/vim-airline"))
     execute 'silent BundleInstall'
@@ -146,7 +149,7 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
@@ -156,6 +159,9 @@ let g:UltiSnipsExpandTrigger="<F2>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsSnippetsDir='~/.vim/UltiSnips'
+
+" vim-markdown
+let g:vim_markdown_math=1
 
 """"""""""""""""""""
 " Extra key bindings
@@ -210,3 +216,15 @@ nnoremap <silent> <C-l> :call <SID>NavigateTermSplits('l')<CR>
 " Vim slime
 """""""""""""""
 nnoremap <C-c><cr> ma<C-c><C-c>`a
+
+""""""""""""""""""""""""""""""""
+" Markdown to PDF - Needs pandoc
+""""""""""""""""""""""""""""""""
+autocmd BufWritePost *.md silent! execute "!pandoc -o " . expand("%:r") . ".pdf " . expand("%") . " &"
+au FocusGained * :redraw!
+
+
+""""""""""""""""""""""""""""""""
+" My Github
+""""""""""""""""""""""""""""""""
+nnoremap <leader>gh :e ~/python/

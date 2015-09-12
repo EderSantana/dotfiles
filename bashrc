@@ -60,3 +60,4 @@ alias gotoaustin='ssh -X edersantana@$AUSTIN'
 export PYTHONPATH=/home/eders/python/vpcn:$PYTHONPATH
 
 export PYTHONPATH=/home/eders/python:/home/eders/python/data/vidtimit:/home/eders/python/pylearn2:/home/eders/python/vpcn:/home/eders/python/vpcn:
+source ~/.api_ids
