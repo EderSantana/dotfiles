@@ -90,7 +90,7 @@ let g:slime_python_ipython = 1
 """""""""""
 " airline
 """""""""""
-set guifont=Monaco
+set guifont=Hack
 set laststatus=2 " always show statusline
 let g:airline#extensions#bufferline#enabled = 1
 " let g:airline#extensions#tabline#enabled = 1 " show open buffers
