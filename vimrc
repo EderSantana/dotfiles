@@ -223,7 +223,7 @@ nnoremap <C-c><cr> ma<C-c><C-c>`a
 """"""""""""""""""""""""""""""""
 " Markdown to PDF - Needs pandoc
 """"""""""""""""""""""""""""""""
-autocmd BufWritePost *.md silent! execute "!pandoc -o " . expand("%:r") . ".pdf " . expand("%") . " &"
+autocmd BufWritePost *.md execute "!pandoc -o " . expand("%:r") . ".pdf " . expand("%") . " &"
 au FocusGained * :redraw!
 
 """"""""""""""""""""""""""""""""

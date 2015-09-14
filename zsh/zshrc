@@ -1,4 +1,5 @@
 # Path to your oh-my-zsh installation.
+source ~/.bashrc
 export ZSH=/Users/eder/.oh-my-zsh
 
 # Set name of the theme to load.
