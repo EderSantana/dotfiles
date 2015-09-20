@@ -34,7 +34,7 @@ alias buns='source ~/anaconda/bin/activate ~/anaconda'
 alias pypath='echo "export PYTHONPATH=$PWD:\$PYTHONPATH">>~/.profile'
 alias gotoaustin='ssh -X edersantana@$AUSTIN'
 alias inote='ipython notebook'
-alias macvim='/usr/local/Cellar/macvim/7.4-77/MacVim.app'
+alias macvim='/usr/local/Cellar/macvim/7.4-77/MacVim.app/Contents/MacOS/MacVim'
 # Your previous /Users/eder/.profile file was backed up as /Users/eder/.profile.macports-saved_2014-05-04_at_16:55:26
 ##
 

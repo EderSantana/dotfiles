@@ -58,6 +58,7 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'sloria/vim-ped'
 Plugin 'junegunn/seoul256.vim'
 Plugin 'tomasr/molokai'
+Plugin 'Glench/Vim-Jinja2-Syntax'
 
 if !isdirectory(expand("~/.vim/bundle/vim-airline"))
     execute 'silent BundleInstall'
@@ -127,6 +128,7 @@ let g:gundo_prefer_python3 = 1
 map <leader>t :NERDTreeToggle<CR>
 hi Directory guifg=#FF0000 ctermfg=red
 let NERDTreeIgnore = ['\.pyc$']
+" let NERDTreeMapOpenInTab='<ENTER>'
 
 " SuperTab
 au FileType python set omnifunc=pythoncomplete#Complete
