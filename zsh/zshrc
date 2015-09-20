@@ -54,7 +54,7 @@ plugins=(git)
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin:/Users/eder/bash:/usr/local/heroku/bin:/Applications/Postgres.app/Contents/Versions/9.4/bin"
+# export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin:/Users/eder/bash:/usr/local/heroku/bin:/Applications/Postgres.app/Contents/Versions/9.4/bin"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
