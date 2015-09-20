@@ -59,7 +59,9 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texb
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
-source $HOME/dotfiles/custom-configs/mac_profile.sh
+if [ "$(uname)" == "Darwin" ]; then
+    source $HOME/dotfiles/custom-configs/mac_profile.sh
+fi
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
