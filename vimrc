@@ -59,6 +59,8 @@ Plugin 'sloria/vim-ped'
 Plugin 'junegunn/seoul256.vim'
 Plugin 'tomasr/molokai'
 Plugin 'Glench/Vim-Jinja2-Syntax'
+Plugin 'pangloss/vim-javascript'
+Plugin 'sickill/vim-monokai'
 
 if !isdirectory(expand("~/.vim/bundle/vim-airline"))
     execute 'silent BundleInstall'
@@ -68,7 +70,7 @@ endif
 filetype plugin indent on " detect file type and load indents and plugins
 syntax on                 " turn on syntax highlighting
 syntax enable
-colorscheme jellybeans    " syntax highlighting colours
+colorscheme molokai    " syntax highlighting colours
 set cursorline            " don't lose yourself
 set expandtab             " enter spaces when tab is pressed
 set textwidth=80          " break lines when line length increases
@@ -80,6 +82,10 @@ set autoread              " auto reload buffer when file modified externally
 set clipboard=unnamed     " yank and paste using system clipboard
 set encoding=utf-8        " default char encoding
 set lazyredraw
+
+let g:molokai_original = 1
+" let g:rehash256 = 1
+
 
 """""""""""
 " slime
@@ -186,7 +192,7 @@ noremap <C-k> <C-w>k
 augroup LongLines
     autocmd!
     autocmd FileType * match none
-    autocmd FileType python,vim match ErrorMsg '\%>80v.\+'
+    autocmd FileType python,vim match ErrorMsg '\%>120v.\+'
     autocmd FileType html,htmldjango match ErrorMsg '\%>100v.\+'
 augroup END
 
