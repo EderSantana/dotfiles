@@ -61,6 +61,7 @@ Plugin 'tomasr/molokai'
 Plugin 'Glench/Vim-Jinja2-Syntax'
 Plugin 'pangloss/vim-javascript'
 Plugin 'sickill/vim-monokai'
+Plugin 'tpope/vim-repeat'
 
 if !isdirectory(expand("~/.vim/bundle/vim-airline"))
     execute 'silent BundleInstall'
@@ -195,6 +196,8 @@ augroup LongLines
     autocmd FileType python,vim match ErrorMsg '\%>120v.\+'
     autocmd FileType html,htmldjango match ErrorMsg '\%>100v.\+'
 augroup END
+
+autocmd FileType html :set tw=120
 
 " Automatically wrap text while typing in Markdown and rST documents
 autocmd! BufNewFile,BufReadPost *.md set filetype=markdown
