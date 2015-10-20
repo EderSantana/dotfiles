@@ -5,7 +5,7 @@ set backspace=indent,eol,start
 set number
 " Leader keys
 let mapleader = "'"
-let maplocalleader = "|"
+let maplocalleader = '\'
 " No shifts for :
 noremap ; :
 noremap ;; ;
@@ -62,6 +62,8 @@ Plugin 'Glench/Vim-Jinja2-Syntax'
 Plugin 'pangloss/vim-javascript'
 Plugin 'sickill/vim-monokai'
 Plugin 'tpope/vim-repeat'
+Plugin 'beloglazov/vim-online-thesaurus'
+Plugin 'jaxbot/semantic-highlight.vim'
 
 if !isdirectory(expand("~/.vim/bundle/vim-airline"))
     execute 'silent BundleInstall'
@@ -87,6 +89,12 @@ set lazyredraw
 let g:molokai_original = 1
 " let g:rehash256 = 1
 
+
+"""""""""""
+" Thesaurus
+"""""""""""
+nnoremap <LocalLeader>k :OnlineThesaurusCurrentWord<CR>
+vnoremap <LocalLeader>k y:Thesaurus <C-r>"<CR>
 
 """""""""""
 " slime
@@ -236,8 +244,15 @@ nnoremap <C-c><cr> ma<C-c><C-c>`a
 """"""""""""""""""""""""""""""""
 autocmd BufWritePost *.md execute "!pandoc -o " . expand("%:r") . ".pdf " . expand("%") . " &"
 au FocusGained * :redraw!
+autocmd BufNewFile,BufRead *.tex setlocal spell spelllang=en_us
 
 """"""""""""""""""""""""""""""""
 " My Github
 """"""""""""""""""""""""""""""""
 nnoremap <leader>gh :e ~/python/
+
+""""""""""""""""""""""""""""""""
+" Highlight non-ascii chars
+""""""""""""""""""""""""""""""""
+highlight nonascii guibg=Red ctermbg=1 term=standout
+au BufReadPost * syntax match nonascii "[^\u0000-\u007F]"
