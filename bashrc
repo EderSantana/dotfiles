@@ -49,9 +49,6 @@ alias ls='ls --color'
 alias root_trash='sudo bash -c "exec rm -r /root/.local/share/Trash/{files,info}/*"'
 alias tmux="TERM=screen-256color-bce tmux"  # Fix tmux making vim colors funky
 
-alias inote='ipython notebook --ip=10.227.119.105'
 alias nenv='. ~/.bashrc; . ~/newenv/bin/activate'
-export AUSTIN=ece-n241-cnelx1.ad.ufl.edu
 alias gotoaustin='ssh -X edersantana@$AUSTIN'
-
 source ~/.api_ids

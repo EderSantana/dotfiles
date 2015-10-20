@@ -57,9 +57,6 @@ veders () {
 
 # export PS1=$PS1'\n>> '
 PATH=/Users/eder/bash:$PATH
-export PYTHONPATH=/Users/eder/python:$PYTHONPATH
-export PYTHONPATH=/Users/eder/python/vpcn:$PYTHONPATH
-export PYTHONPATH=/Users/eder/python:$PYTHONPATH
 
 # Node
 export NODE_PATH=/usr/local/lib/node_modules
